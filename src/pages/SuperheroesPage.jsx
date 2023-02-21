@@ -3,13 +3,15 @@ import axios from "axios";
 const SuperheroesPage = () => {
   const [isLoading, updateIsLoading] = useState(true);
   const [superheroesList, updateSuperheroesList] = useState([]);
+  const [errorOccured, updateErrorOccured] = useState("");
   const getAllSuperheroes = async () => {
     try {
-      const { data } = await axios.get("http://localhost:4000/superheroes");
+      const { data } = await axios.get("http://localhost:4000/superheroes-4");
       updateIsLoading(false);
       updateSuperheroesList(data);
     } catch (error) {
-      console.error("An error occured");
+      updateIsLoading(false);
+      updateErrorOccured(error.message);
     }
   };
   useEffect(() => {
@@ -17,6 +19,9 @@ const SuperheroesPage = () => {
   }, []);
   if (isLoading) {
     return <h4>Loading...</h4>;
+  }
+  if (errorOccured !== "") {
+    return <h4>{errorOccured}</h4>;
   }
   return (
     <div>
