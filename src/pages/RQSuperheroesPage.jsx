@@ -1,11 +1,11 @@
 import { useQuery } from "react-query";
 import axios from "axios";
 const fetchSuperheroes = () => {
-  return axios.get("http://localhost:4000/superheroes90");
+  return axios.get("http://localhost:4000/superheroes");
 };
 const RQSuperheroesPage = () => {
   const { isLoading, data, isError, error } = useQuery(
-    "superheroes",
+    ["superheroes"],
     fetchSuperheroes
   );
   if (isLoading) {

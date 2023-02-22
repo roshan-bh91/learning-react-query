@@ -6,7 +6,7 @@ const SuperheroesPage = () => {
   const [errorOccured, updateErrorOccured] = useState("");
   const getAllSuperheroes = async () => {
     try {
-      const { data } = await axios.get("http://localhost:4000/superheroes-4");
+      const { data } = await axios.get("http://localhost:4000/superheroes");
       updateIsLoading(false);
       updateSuperheroesList(data);
     } catch (error) {
