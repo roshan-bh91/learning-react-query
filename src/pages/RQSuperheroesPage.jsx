@@ -4,10 +4,11 @@ const fetchSuperheroes = () => {
   return axios.get("http://localhost:4000/superheroes");
 };
 const RQSuperheroesPage = () => {
-  const { isLoading, data, isError, error } = useQuery(
+  const { isLoading, data, isError, error, isFetching } = useQuery(
     ["superheroes"],
     fetchSuperheroes
   );
+  console.log({ isLoading, isFetching });
   if (isLoading) {
     return <h4>Loading...</h4>;
   }
