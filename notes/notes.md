@@ -21,3 +21,14 @@ Some more parameters that can be introduced in the third object like argument of
 
 1) `refetchOnMount`: default value is `true`. Other values you can set it are : `false` or `always`. As the name suggests whenever the component is mounted into view, this property decides to send a refetch request for data in the background.
 2) `refetchOnWindowFocus`: default value is `true`. Other values you can set it are : `false` or `always`. Now when the tab gets out of focus and comes back again in focus a network request is put again.
+
+
+## Polling of data:
+
+Polling refers to the process of fetching data at regular component
+Examples: Component displaying Realtime stocks data that changes quite frequently.
+
+So to enable this feature, two properties can be used in the third object argument of `useQuery`:
+-> refetchInterval: for doing refetch requests based on the value we pass within this property. If the tab gets out of focus,
+ refetching gets paused 
+ -> refetchIntervalInBackground: to continue sending refetch requests after certain intervals even when the tab goes out of focus background
