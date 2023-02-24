@@ -6,9 +6,12 @@ const fetchSuperheroes = () => {
 const RQSuperheroesPage = () => {
   const { isLoading, data, isError, error, isFetching } = useQuery(
     ["superheroes"],
-    fetchSuperheroes,{
+    fetchSuperheroes,
+    {
       // cacheTime:5000,/* default value is 5 minutes */,
-      staleTime:30000
+      // staleTime:30000
+      refetchOnMount: true,
+      refetchOnWindowFocus: true,
     }
   );
   console.log({ isLoading, isFetching });

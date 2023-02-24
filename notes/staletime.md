@@ -15,3 +15,9 @@ After understanding the state of the queries we can explain the stale time and c
 
 Default value of `staleTime`: 0 seconds (can reduce the number of network requests )
 Default value of `cacheTime`: 5 minutes
+
+
+Some more parameters that can be introduced in the third object like argument of useQuery:
+
+1) `refetchOnMount`: default value is `true`. Other values you can set it are : `false` or `always`. As the name suggests whenever the component is mounted into view, this property decides to send a refetch request for data in the background.
+2) `refetchOnWindowFocus`: default value is `true`. Other values you can set it are : `false` or `always`. Now when the tab gets out of focus and comes back again in focus a network request is put again.
