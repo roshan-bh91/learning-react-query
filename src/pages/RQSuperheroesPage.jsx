@@ -4,7 +4,7 @@ const fetchSuperheroes = () => {
   return axios.get("http://localhost:4000/superheroes");
 };
 const RQSuperheroesPage = () => {
-  const { isLoading, data, isError, error, isFetching } = useQuery(
+  const { isLoading, data, isError, error, isFetching, refetch } = useQuery(
     ["superheroes"],
     fetchSuperheroes,
     {
@@ -14,10 +14,11 @@ const RQSuperheroesPage = () => {
       // refetchOnWindowFocus: true,
       // refetchInterval:4000
       // refetchIntervalInBackground: 4000,
+      enabled: false,
     }
   );
   console.log({ isLoading, isFetching });
-  if (isLoading) {
+  if (isLoading || isFetching) {
     return <h4>Loading...</h4>;
   }
   if (isError) {
@@ -26,6 +27,7 @@ const RQSuperheroesPage = () => {
   return (
     <>
       <h4>React query superheroes page</h4>
+      <button onClick={refetch}>FETCH SUPERHEROES</button>
       {data?.data.length === 0 ? (
         <h4>No superhero found</h4>
       ) : (
