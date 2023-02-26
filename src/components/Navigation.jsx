@@ -12,6 +12,9 @@ const Navigation = () => {
         <li>
           <Link to="/rq-superheroes-page">React Query Superheroes</Link>
         </li>
+        <li>
+          <Link to="/rq-task">React Query Task</Link>
+        </li>
       </ul>
     </nav>
   );

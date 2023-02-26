@@ -37,3 +37,9 @@ So it has 3 steps:
 
 - first set the config `enabled` to false. This informs useQuery that we are not running the useQuery on mount
 - Now take another destructured property called as `refetch` on left side of useQuery that will help us in executing the useQuery on certain event
+
+
+## Side effects after the API query gets done:
+- React query allows you to attach onSuccess and onError parameters in the third argument. Once the query gets done based on whether it gets executed successfully or results in an error, then these callbacks will be executed.
+
+- These callbacks also take the results within themselves that are returned after the end of the query

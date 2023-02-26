@@ -4,6 +4,13 @@ const fetchSuperheroes = () => {
   return axios.get("http://localhost:4000/superheroes");
 };
 const RQSuperheroesPage = () => {
+  const onSuccess = (response_details) => {
+    console.log("Side effect after successful API query",response_details);
+  };
+  const onError = (error_details) => {
+    console.log("Side effect after error occurred",error_details);
+  };
+
   const { isLoading, data, isError, error, isFetching, refetch } = useQuery(
     ["superheroes"],
     fetchSuperheroes,
@@ -15,6 +22,8 @@ const RQSuperheroesPage = () => {
       // refetchInterval:4000
       // refetchIntervalInBackground: 4000,
       enabled: false,
+      onSuccess,
+      onError,
     }
   );
   console.log({ isLoading, isFetching });

@@ -15,5 +15,28 @@
       "superhero_name": "Superman",
       "superhero_alter_ego": "Clark Kent"
     }
+  ],
+  "superheroes-rectified": [
+    {
+      "superhero_id": "hey_11",
+      "superhero_name": "Wonder Woman",
+      "superhero_alter_ego": "Diana Prince"
+    },
+    {
+      "superhero_id": "hey_12",
+      "superhero_name": "Batman: by ben affleck",
+      "superhero_alter_ego": "Bruce Wayne"
+    },
+    {
+      "superhero_id": "hey_13",
+      "superhero_name": "Superman",
+      "superhero_alter_ego": "Clark Kent"
+    },
+    {
+      "superhero_id": "hey_14",
+      "superhero_name": "Aquaman",
+      "superhero_alter_ego": "Arthur Curry"
+    }
   ]
+
 }
