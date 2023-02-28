@@ -4,7 +4,7 @@ const fetchSuperheroes = () => {
   return axios.get("http://localhost:4000/superheroes");
 };
 const useSuperHeroesData = ({ onSuccess, onError }) => {
-  return useQuery("superheroes", fetchSuperheroes, {
+  return useQuery(["superheroes"], fetchSuperheroes, {
     // cacheTime:5000,/* default value is 5 minutes */,
     // staleTime:30000
     // refetchOnMount: true,
@@ -13,6 +13,7 @@ const useSuperHeroesData = ({ onSuccess, onError }) => {
     // refetchIntervalInBackground: 4000
     onSuccess,
     onError,
+    refetchInterval:false,
     enabled: false,
     select: (api_response) => {
       const superhero_names = api_response.data.map((everySuperhero) => {

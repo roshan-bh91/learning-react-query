@@ -1,10 +1,16 @@
-import { useSuperHeroesData } from "../hooks";
+import { useSuperheroDataHook, useSuperHeroesData } from "../hooks";
+import { useState } from "react";
+import { ViewComponent } from "../components/";
 const RQSuperheroesPage = () => {
+  const [launchComponent, updateLaunchComponent] = useState(false);
   const onSuccess = (response_details) => {
     console.log("Side effect after successful API query", response_details);
   };
   const onError = (error_details) => {
     console.log("Side effect after error occurred", error_details);
+  };
+  const launchComponentIntoView = () => {
+    updateLaunchComponent((prev) => !prev);
   };
 
   // const generate_superhero_names = (response_received) => {
@@ -16,22 +22,29 @@ const RQSuperheroesPage = () => {
   //   });
   //   return superhero_names;
   // };
-  const { isLoading, data, isError, error, isFetching, refetch } = useSuperHeroesData(
-    {
+  const { isLoading, data, isError, error, isFetching, refetch } =
+    useSuperHeroesData({
       onSuccess,
-      onError
-    }
-  );
+      onError,
+    });
+  const config = {
+    enabled: false,
+    refetchInterval: false,
+    refetchOnMount: true,
+  };
+  const { refetch: refetchForComponent } = useSuperheroDataHook(config);
   if (isLoading || isFetching) {
     return <h4>Loading...</h4>;
   }
   if (isError) {
     return <h4>{error.message}</h4>;
   }
+  console.log({ isLoading, isFetching });
   return (
     <>
       <h4>React query superheroes page</h4>
       <button onClick={refetch}>FETCH SUPERHEROES</button>
+      {/* Code for transformed data */}
       <>
         {data?.length === 0 ? (
           <h4>No superhero found</h4>
@@ -47,6 +60,7 @@ const RQSuperheroesPage = () => {
           </ul>
         )}
       </>
+      {/* Code for non transformed data */}
       <>
         {/* {data?.data.length === 0 ? (
           <h4>No superhero found</h4>
@@ -62,6 +76,15 @@ const RQSuperheroesPage = () => {
           </ul>
         )} */}
       </>
+      <button
+        onClick={() => {
+          launchComponentIntoView();
+          refetchForComponent();
+        }}
+      >
+        LAUNCH COMPONENT
+      </button>
+      {launchComponent ? <ViewComponent /> : <></>}
     </>
   );
 };

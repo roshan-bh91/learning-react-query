@@ -43,3 +43,9 @@ So it has 3 steps:
 - React query allows you to attach onSuccess and onError parameters in the third argument. Once the query gets done based on whether it gets executed successfully or results in an error, then these callbacks will be executed.
 
 - These callbacks also take the results within themselves that are returned after the end of the query
+
+## Data transformation:
+Data returned from the API response can be transformed into a specific part using the `select` config that can be passed into the third object like argument of useQuery. this select option takes the overall api response and returns the modified part. there is the need of mentioning the response on the spot of definition and writing the function
+
+## Custom query hook:
+For rewriting the logic of custom 
