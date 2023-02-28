@@ -37,6 +37,19 @@
       "superhero_name": "Aquaman",
       "superhero_alter_ego": "Arthur Curry"
     }
+  ],
+  "friends": [
+    {
+      "id": "1",
+      "name": "Chandler Bing"
+    },
+    {
+      "id": "2",
+      "name": "Joey Tribbiani"
+    },
+    {
+      "id": "3",
+      "name": "Rachel Green"
+    }
   ]
-
 }

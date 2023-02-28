@@ -1,10 +1,12 @@
 import { Routes, Route } from "react-router-dom";
 import {
   Homepage,
+  RQParallelQueries,
   RQSingleSuperhero,
   RQSuperheroesPage,
   RQTaskPage,
   SuperheroesPage,
+  RQDynamicParallelPage,
 } from "../pages";
 const WebappRoutes = () => {
   return (
@@ -17,6 +19,8 @@ const WebappRoutes = () => {
         path={`/rq-superheroes-page/:id`}
         element={<RQSingleSuperhero />}
       />
+      <Route path="/rq-parallel-queries" element={<RQParallelQueries />} />
+      <Route path="/rq-dynamic-parallel" element={<RQDynamicParallelPage heroIds={[11,12]}/>} />
     </Routes>
   );
 };
