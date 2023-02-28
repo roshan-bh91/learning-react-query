@@ -13,17 +13,17 @@ const useSuperHeroesData = ({ onSuccess, onError }) => {
     // refetchIntervalInBackground: 4000
     onSuccess,
     onError,
-    refetchInterval:false,
+    refetchInterval: false,
     enabled: false,
-    select: (api_response) => {
-      const superhero_names = api_response.data.map((everySuperhero) => {
-        return {
-          superhero_id: everySuperhero.superhero_id,
-          superhero_name: everySuperhero.superhero_name,
-        };
-      });
-      return superhero_names;
-    },
+    // select: (api_response) => {
+    //   const superhero_names = api_response.data.map((everySuperhero) => {
+    //     return {
+    //       superhero_id: everySuperhero.superhero_id,
+    //       superhero_name: everySuperhero.superhero_name,
+    //     };
+    //   });
+    //   return superhero_names;
+    // },
   });
 };
 export { useSuperHeroesData };

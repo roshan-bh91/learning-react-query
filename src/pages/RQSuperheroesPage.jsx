@@ -1,17 +1,18 @@
-import { useSuperheroDataHook, useSuperHeroesData } from "../hooks";
-import { useState } from "react";
-import { ViewComponent } from "../components/";
+import { Link } from "react-router-dom";
+import { /*useSuperheroDataHook,*/ useSuperHeroesData } from "../hooks";
+// import { useState } from "react";
+// import { ViewComponent } from "../components/";
 const RQSuperheroesPage = () => {
-  const [launchComponent, updateLaunchComponent] = useState(false);
+  // const [launchComponent, updateLaunchComponent] = useState(false);
   const onSuccess = (response_details) => {
     console.log("Side effect after successful API query", response_details);
   };
   const onError = (error_details) => {
     console.log("Side effect after error occurred", error_details);
   };
-  const launchComponentIntoView = () => {
-    updateLaunchComponent((prev) => !prev);
-  };
+  // const launchComponentIntoView = () => {
+  //   updateLaunchComponent((prev) => !prev);
+  // };
 
   // const generate_superhero_names = (response_received) => {
   //   const superhero_names = response_received.data.map((everySuperhero) => {
@@ -27,12 +28,12 @@ const RQSuperheroesPage = () => {
       onSuccess,
       onError,
     });
-  const config = {
-    enabled: false,
-    refetchInterval: false,
-    refetchOnMount: true,
-  };
-  const { refetch: refetchForComponent } = useSuperheroDataHook(config);
+  // const config = {
+  //   enabled: false,
+  //   refetchInterval: false,
+  //   refetchOnMount: true,
+  // };
+  // const { refetch: refetchForComponent } = useSuperheroDataHook(config);
   if (isLoading || isFetching) {
     return <h4>Loading...</h4>;
   }
@@ -45,7 +46,7 @@ const RQSuperheroesPage = () => {
       <h4>React query superheroes page</h4>
       <button onClick={refetch}>FETCH SUPERHEROES</button>
       {/* Code for transformed data */}
-      <>
+      {/* <>
         {data?.length === 0 ? (
           <h4>No superhero found</h4>
         ) : (
@@ -59,32 +60,39 @@ const RQSuperheroesPage = () => {
             })}
           </ul>
         )}
-      </>
+      </> */}
       {/* Code for non transformed data */}
       <>
-        {/* {data?.data.length === 0 ? (
+        {data?.data.length === 0 ? (
           <h4>No superhero found</h4>
         ) : (
           <ul>
             {data?.data.map((everySuperhero) => {
               return (
-                <p key={everySuperhero.superhero_id}>
-                  {everySuperhero.superhero_name}
-                </p>
+                <div key={everySuperhero.superhero_id}>
+                  <p>{everySuperhero.superhero_name}</p>
+                  <Link
+                    to={`/rq-superheroes-page/${everySuperhero.superhero_id}`}
+                  >
+                    Check here
+                  </Link>
+                </div>
               );
             })}
           </ul>
-        )} */}
+        )}
       </>
-      <button
-        onClick={() => {
-          launchComponentIntoView();
-          refetchForComponent();
-        }}
-      >
-        LAUNCH COMPONENT
-      </button>
-      {launchComponent ? <ViewComponent /> : <></>}
+      {/* <>
+        <button
+          onClick={() => {
+            launchComponentIntoView();
+            refetchForComponent();
+          }}
+        >
+          LAUNCH COMPONENT
+        </button>
+        {launchComponent ? <ViewComponent /> : <></>}
+      </> */}
     </>
   );
 };
