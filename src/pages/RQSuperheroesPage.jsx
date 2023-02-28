@@ -1,8 +1,4 @@
-import { useQuery } from "react-query";
-import axios from "axios";
-const fetchSuperheroes = () => {
-  return axios.get("http://localhost:4000/superheroes");
-};
+import { useSuperHeroesData } from "../hooks";
 const RQSuperheroesPage = () => {
   const onSuccess = (response_details) => {
     console.log("Side effect after successful API query", response_details);
@@ -20,30 +16,10 @@ const RQSuperheroesPage = () => {
   //   });
   //   return superhero_names;
   // };
-  const { isLoading, data, isError, error, isFetching, refetch } = useQuery(
-    ["superheroes"],
-    fetchSuperheroes,
+  const { isLoading, data, isError, error, isFetching, refetch } = useSuperHeroesData(
     {
-      // cacheTime:5000,/* default value is 5 minutes */,
-      // staleTime:30000
-      // refetchOnMount: true,
-      // refetchOnWindowFocus: true,
-      // refetchInterval:4000
-      // refetchIntervalInBackground: 4000,
-      enabled: false,
       onSuccess,
-      onError,
-      select: (api_response) => {
-        console.log(api_response);
-        const superhero_names = api_response.data.map((everySuperhero) => {
-          return {
-            superhero_id: everySuperhero.superhero_id,
-            superhero_name: everySuperhero.superhero_name,
-          };
-        });
-        console.log(superhero_names);
-        return superhero_names;
-      },
+      onError
     }
   );
   if (isLoading || isFetching) {
@@ -52,7 +28,6 @@ const RQSuperheroesPage = () => {
   if (isError) {
     return <h4>{error.message}</h4>;
   }
-  console.log(data);
   return (
     <>
       <h4>React query superheroes page</h4>
