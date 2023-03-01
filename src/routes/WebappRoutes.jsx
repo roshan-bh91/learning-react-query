@@ -7,6 +7,7 @@ import {
   RQTaskPage,
   SuperheroesPage,
   RQDynamicParallelPage,
+  RQDependentQueries,
 } from "../pages";
 const WebappRoutes = () => {
   return (
@@ -20,7 +21,14 @@ const WebappRoutes = () => {
         element={<RQSingleSuperhero />}
       />
       <Route path="/rq-parallel-queries" element={<RQParallelQueries />} />
-      <Route path="/rq-dynamic-parallel" element={<RQDynamicParallelPage heroIds={[11,12]}/>} />
+      <Route
+        path="/rq-dynamic-parallel"
+        element={<RQDynamicParallelPage heroIds={[11, 12]} />}
+      />
+      <Route
+        path="/rq-dependent-queries"
+        element={<RQDependentQueries email={"vishwas@codevolution.com"} />}
+      />
     </Routes>
   );
 };
