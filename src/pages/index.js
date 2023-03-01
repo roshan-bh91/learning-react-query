@@ -7,3 +7,4 @@ export * from "./RQParallelQueries";
 export * from "./RQDynamicParallel.page";
 export * from "./RQDependentQueries.page";
 export * from "./RQPaginatedQueries";
+export * from "./RQInfiniteQueries.page";

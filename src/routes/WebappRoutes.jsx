@@ -9,6 +9,7 @@ import {
   RQDynamicParallelPage,
   RQDependentQueries,
   RQPaginatedQueries,
+  RQInfiniteQueriesPage,
 } from "../pages";
 const WebappRoutes = () => {
   return (
@@ -31,6 +32,7 @@ const WebappRoutes = () => {
         element={<RQDependentQueries email={"vishwas@codevolution.com"} />}
       />
       <Route path="/rq-paginated-queries" element={<RQPaginatedQueries />} />
+      <Route path="/rq-infinite-queries" element={<RQInfiniteQueriesPage />} />
     </Routes>
   );
 };
