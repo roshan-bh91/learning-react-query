@@ -8,6 +8,7 @@ import {
   SuperheroesPage,
   RQDynamicParallelPage,
   RQDependentQueries,
+  RQPaginatedQueries,
 } from "../pages";
 const WebappRoutes = () => {
   return (
@@ -29,6 +30,7 @@ const WebappRoutes = () => {
         path="/rq-dependent-queries"
         element={<RQDependentQueries email={"vishwas@codevolution.com"} />}
       />
+      <Route path="/rq-paginated-queries" element={<RQPaginatedQueries />} />
     </Routes>
   );
 };

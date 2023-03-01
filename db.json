@@ -63,5 +63,39 @@
       "id": "Codevolution",
       "courses": ["React", "Vue", "Angular"]
     }
+  ],
+  "colors": [
+    {
+      "id": "1",
+      "color_info": "Red"
+    },
+    {
+      "id": "2",
+      "color_info": "Green"
+    },
+    {
+      "id": "3",
+      "color_info": "Blue"
+    },
+    {
+      "id": "4",
+      "color_info": "Yellow"
+    },
+    {
+      "id": "5",
+      "color_info": "Pink"
+    },
+    {
+      "id": "6",
+      "color_info": "Violet"
+    },
+    {
+      "id": "7",
+      "color_info": "Orange"
+    },
+    {
+      "id": "8",
+      "color_info": "Purple"
+    }
   ]
 }

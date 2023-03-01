@@ -48,4 +48,12 @@ So it has 3 steps:
 Data returned from the API response can be transformed into a specific part using the `select` config that can be passed into the third object like argument of useQuery. this select option takes the overall api response and returns the modified part. there is the need of mentioning the response on the spot of definition and writing the function
 
 ## Custom query hook:
-For rewriting the logic of custom 
+For rewriting the logic of fetching data custom hook was written
+
+
+In javascript functions,if a particular argument is optional, then introduce an underscore before that optional variable instead of eliminating it:
+function a(x,y) : Takes both arguments
+function a(_x,y): Considers only y
+-
+
+useInfiniteQueries
