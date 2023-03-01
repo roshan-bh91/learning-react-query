@@ -13,7 +13,7 @@ const useSuperHeroesData = ({ onSuccess, onError }) => {
     // refetchIntervalInBackground: 4000
     onSuccess,
     onError,
-    refetchInterval: false,
+    // refetchInterval: false,
     enabled: false,
     // select: (api_response) => {
     //   const superhero_names = api_response.data.map((everySuperhero) => {

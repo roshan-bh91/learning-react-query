@@ -4,11 +4,12 @@ import { useSingleSuperheroData } from "../hooks/useSingleSuperheroData";
 const RQSingleSuperhero = () => {
   const { id: specific_superhero_id } = useParams();
   console.log(specific_superhero_id);
-  const {
-    isError,
-    error,
-    data,
-  } = useSingleSuperheroData(specific_superhero_id);
+  const { isLoading, isError, error, data } = useSingleSuperheroData(
+    specific_superhero_id
+  );
+  if (isLoading) {
+    return <h4>Waiting for superhero details...</h4>;
+  }
   if (isError) {
     return <h4>{error.message}</h4>;
   }
