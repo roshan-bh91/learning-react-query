@@ -8,3 +8,5 @@ export * from "./RQDynamicParallel.page";
 export * from "./RQDependentQueries.page";
 export * from "./RQPaginatedQueries";
 export * from "./RQInfiniteQueries.page";
+export * from "./RQPostNewHero.page";
+export * from "./RQParticularSuperhero.page";

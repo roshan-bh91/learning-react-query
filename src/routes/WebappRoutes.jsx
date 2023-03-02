@@ -10,6 +10,8 @@ import {
   RQDependentQueries,
   RQPaginatedQueries,
   RQInfiniteQueriesPage,
+  RQPostNewHeroPage,
+  RQParticularSuperheroPage,
 } from "../pages";
 const WebappRoutes = () => {
   return (
@@ -33,6 +35,11 @@ const WebappRoutes = () => {
       />
       <Route path="/rq-paginated-queries" element={<RQPaginatedQueries />} />
       <Route path="/rq-infinite-queries" element={<RQInfiniteQueriesPage />} />
+      <Route path="/rq-add-superhero" element={<RQPostNewHeroPage />} />
+      <Route
+        path="/rq-add-superhero/:superhero_id"
+        element={<RQParticularSuperheroPage />}
+      />
     </Routes>
   );
 };

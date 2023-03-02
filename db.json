@@ -61,7 +61,11 @@
   "channels": [
     {
       "id": "Codevolution",
-      "courses": ["React", "Vue", "Angular"]
+      "courses": [
+        "React",
+        "Vue",
+        "Angular"
+      ]
     }
   ],
   "colors": [
@@ -96,6 +100,28 @@
     {
       "id": "8",
       "color_info": "Purple"
+    }
+  ],
+  "superheroes_collection": [
+    {
+      "id": "11",
+      "superhero_name": "Wonder Woman",
+      "superhero_alter_ego": "Diana Prince"
+    },
+    {
+      "id": "12",
+      "superhero_name": "Batman: by ben affleck",
+      "superhero_alter_ego": "Bruce Wayne"
+    },
+    {
+      "id": "13",
+      "superhero_name": "Superman",
+      "superhero_alter_ego": "Clark Kent"
+    },
+    {
+      "superhero_name": "flash",
+      "superhero_alter_ego": "barry allen",
+      "id": "w_jCYSn"
     }
   ]
 }
