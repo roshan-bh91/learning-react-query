@@ -122,6 +122,31 @@
       "superhero_name": "flash",
       "superhero_alter_ego": "barry allen",
       "id": "w_jCYSn"
+    },
+    {
+      "superhero_name": "green arrow",
+      "superhero_alter_ego": "oliver queen",
+      "id": "PDCoQGH"
+    },
+    {
+      "superhero_name": "shazam",
+      "superhero_alter_ego": "billy batson",
+      "id": "eQnbJ6M"
+    },
+    {
+      "superhero_name": "Catwoman",
+      "superhero_alter_ego": "Selina Kyle",
+      "id": "rVgBoZt"
+    },
+    {
+      "superhero_name": "nightwing",
+      "superhero_alter_ego": "dick",
+      "id": "_o23jK0"
+    },
+    {
+      "superhero_name": "GREEN LANTERN",
+      "superhero_alter_ego": "JOHN STEWART",
+      "id": "DLlArS7"
     }
   ]
 }

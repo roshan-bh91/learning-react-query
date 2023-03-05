@@ -18,10 +18,17 @@ const RQParticularSuperheroPage = () => {
   return (
     <div>
       Welcome to the superhero info page
-      <h4>Superhero_name: {particular_superhero_info?.data.superhero_name} </h4>
+      <h4>
+        Superhero_name:{" "}
+        {particular_superhero_info?.data
+          ? particular_superhero_info?.data.superhero_name
+          : particular_superhero_info?.superhero_name}{" "}
+      </h4>
       <h4>
         Superhero Alter ego:{" "}
-        {particular_superhero_info?.data.superhero_alter_ego}
+        {particular_superhero_info?.data
+          ? particular_superhero_info?.data.superhero_alter_ego
+          : particular_superhero_info?.superhero_alter_ego}
       </h4>
     </div>
   );

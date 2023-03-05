@@ -57,3 +57,9 @@ function a(_x,y): Considers only y
 -
 
 useInfiniteQueries
+
+For saving additional requesting while adding a new superhero using pOST, useMutations provides a method to update the data in the cache and we can shift our data in it.
+
+For making simultaneous updates, we can invalidate the queries too from the queryClient so that network calls can be made to fetch the data
+
+Optimistic updates: Updating a state before performing a mutation under the assumption that nothing can go wrong

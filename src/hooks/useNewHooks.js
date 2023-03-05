@@ -1,14 +1,18 @@
 import { useQuery, useMutation, useQueryClient } from "react-query";
 import axios from "axios";
+import { request } from "../utils/axios-utils";
+// request
 
 const fetchSuperheroes = () => {
-  return axios.get("http://localhost:4000/superheroes_collection");
+  // return axios.get("http://localhost:4000/superheroes_collection");
+  return request({ url: `/superheroes_collection` });
 };
 
 const getParticularSuperheroData = (particular_hero_id) => {
-  return axios.get(
-    `http://localhost:4000/superheroes_collection/${particular_hero_id}`
-  );
+  // return axios.get(
+  //   `http://localhost:4000/superheroes_collection/${particular_hero_id}`
+  // );
+  return request({ url: `/superheroes_collection/${particular_hero_id}` });
 };
 
 const addNewSuperhero = (heroDetails) => {
@@ -49,7 +53,39 @@ const useParticularSuperheroData = (given_hero_id) => {
 const useAddSuperheroData = () => {
   const queryClient = useQueryClient();
   return useMutation(addNewSuperhero, {
-    onSuccess: () => {
+    // onSuccess: (new_introduced_data) => {
+    //   // queryClient.invalidateQueries(["super-hero"]); [For invalidating queries]
+    //   queryClient.setQueryData(["super-hero"], (previousCacheData) => {
+    //     return {
+    //       ...previousCacheData,
+    //       data: [...previousCacheData.data, new_introduced_data.data],
+    //     };
+    //   });
+    // },
+    // For optimistic updates above approach makes extra network call so need to shift to
+    onMutate: async (newHeroDetails) => {
+      await queryClient.cancelQueries(["super-hero"]);
+      const previousQueryData = queryClient.getQueryData(["super-hero"]);
+      queryClient.setQueryData(["super-hero"], (previousData) => ({
+        ...previousData,
+        data: [
+          ...previousData.data,
+          { ...newHeroDetails, id: crypto.randomUUID() },
+        ],
+      }));
+      return { previousQueryData };
+    },
+    // This method is called if the mutation encounters an error
+    onError: (
+      _error,
+      _current_info /* Variables passed into the mutation */,
+      context
+    ) => {
+      queryClient.setQueryData(["super-hero"], context?.previousQueryData);
+    },
+    // This method is called if the mutation is either successful or when an error occurs
+    // here we fetch the superheroes to the query client
+    onSettled: () => {
       queryClient.invalidateQueries(["super-hero"]);
     },
   });
